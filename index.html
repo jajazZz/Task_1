@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>Student Request Form</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="title">School Request Form</div>
+            <div class="tabs">
+                <input type="radio" class="hide" id="welcome" name="selection" checked>
+                <input type="radio" class="hide" id="request" name="selection">
+                <div class="list">
+                    <label for="welcome" class="tab" id="welcometab">Welcome</label>
+                    <label for="request" class="tab" id="requesttab">Request</label>
+                </div>
+                <div class="content">
+                    <div class="tab_content" id="welcome_content">
+                        <img src="PUP.jpg">
+                        <p>COMP 20163 - Web Development <br>Caribo, Jan Airielle B.</p>
+                    </div>
+                    <div>
+                        <div class="tab_content" id="request_content">
+                            <form class="scrollbar" method="post" action="https://script.google.com/macros/s/AKfycbxV9Oq7m4WuUgWqolRoedcuLNQ7JyYFALl-R66Bcua3GWlhJnLLWPsdxkxX5K73KyXvdw/exec">
+                                <h2 class="content_title">Requester Information</h2>
+                                <div class="date">
+                                    <label for="date">Date:</label>
+                                    <input type="date" id="date" name="Date" required>
+                                </div>
+                                <div>
+                                    <label for="fullname">Full Name: </label>
+                                    <input type="text" id="fullname" name="Last Name" placeholder="Last Name" > 
+                                    <input type="text" id="fullname" name="First Name" placeholder="First Name" >
+                                </div><br>
+                                <div>
+                                    <label for="email">Email: </label>
+                                    <input type="email" id="email" name="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address" >
+                                </div><br>
+                                <div>
+                                    <label for="ContactNumber">Contact Number: </label>
+                                    <input type="tel" id="ContactNumber" name="Contact Number" pattern="[0-9]{11}" maxlength="11" placeholder="09XXXXXXXXX">
+                                </div><br>
+                                <div>
+                                    <label for="relation">Relation: </label>
+                                    <select id="relation" name="Relation">
+                                        <option value=""disabled selected>Choose</option>
+                                        <option value="Mother">Mother</option>
+                                        <option value="Father">Father</option>
+                                        <option value="Friend">Friend</option>
+                                        <option value="Self-Request">Self-Request</option>
+                                    </select>
+                                </div>
+                    
+                                <h2>Document(s) Requested:</h2>
+                                    <div>
+                                        <input type="checkbox" id="tor" name="Document" value="Transcript of Records" onclick="enableTOR(this)">
+                                        <label for="tor">Transcript of Records</label>
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        <label for="copies">No. of Copies: </label>
+                                        <input type="number" id="tor_copies" name="copies" min="1" max="99" disabled required>
+                                    </div><br>
+                                    <div>
+                                        <input type="checkbox" id="coe" name="Document" value="Certificate of Enrollment" onclick="enableCOE(this)">
+                                        <label for="coe">Certificate of Enrollment</label>
+                                        &nbsp; &nbsp; &nbsp;
+                                        <label for="copies">No. of Copies: </label>
+                                        <input type="number" id="coe_copies" name="copies" min="1" max="99" disabled required>
+                                    </div><br>
+                                    <div>
+                                        <input type="checkbox" id="gm" name="Document" value="Good Moral Certificate" onclick="enableGM(this)">
+                                        <label for="gm">Good Moral Certificate</label>
+                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                        <label for="copies">No. of Copies: </label>
+                                        <input type="number" id="gm_copies" name="copies" min="1" max="99" disabled required>
+                                    </div><br>
+                                    <div>
+                                        <input type="checkbox" id="od" name="Document" value="Other Document" onclick="enableOD(this)">
+                                        <label for="od">Other Document (please specify)</label>
+                                        <input type="text" id="other" name="otherdocument" disabled>
+                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                        <label for="copies">No. of Copies: </label>
+                                        <input type="number" id="od_copies" name="copies" min="1" max="99" disabled required>
+                                    </div>
+                    
+                                <h2>Proessing Time:</h2>
+                                    <div>
+                                        <input type="radio" id="s" name="Process" value="Standard">
+                                        <label for="s">Standard (3-5 Business Days)</label>
+                                        <br>
+                                        <input type="radio" id="r" name="Process" value="Rush">
+                                        <label for="r">Rush (24-48 Hours)</label>
+                                    </div>
+                    
+                                <h2>Delivery Method:</h2>
+                                    <div>
+                                        <input type="radio" id="p" name="Delivery" value="Pick Up">
+                                        <label for="p">Pick-up</label>
+                                        <br>
+                                        <input type="radio" id="c" name="Delivery" value="Courier">
+                                        <label for="c">Courier</label>
+                                    </div>
+                    
+                                <h2>Payment Method:</h2>
+                                    <div>
+                                        <input type="radio" id="op" name="Payment" value="Online Payment">
+                                        <label for="op">Online Payment</label>
+                                        <br>
+                                        <input type="radio" id="c" name="Payment" value="Cash">
+                                        <label for="c">Cash</label>
+                                        <br>
+                                        <input type="radio" id="cc" name="Payment" value="Credit Card">
+                                        <label for="cc">Credit Card</label>
+                                    </div>
+                                    <div>
+                                        <button type="submit" onclick="Alert()">Submit</button>
+                                    </div>
+                                    <div class="message">
+                                        <label class="success" id="success">Data Saved</label>
+                                        <label class="failed" id="failed">Feilds Can't be Empty!</label>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

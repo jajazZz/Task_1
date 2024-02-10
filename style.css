@@ -1,0 +1,134 @@
+body {
+    background: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.container {
+    background: rgb(128,0,0);
+    color: beige;
+    border-radius: 12px;
+    padding: 40px 50px 40px 40px;
+    max-width: 950px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    height: 500px;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: 750;
+    margin-bottom: 30px;
+}
+
+.tabs {
+    display: flex;
+    gap: 20px;
+}
+
+.scrollbar {
+    height: 365px;
+    overflow: auto;
+}
+
+.list .tab {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 8px 2px;
+    background: rgb(128, 0, 0);
+    width: 50%;
+    display: inline-block;
+    border-radius: 12px;
+}
+
+#welcome:checked ~ .list #welcometab,
+#request:checked ~ .list #requesttab
+{
+    background: beige;
+    color: black;
+}
+
+.tabs .hide {
+    display: none;
+}
+
+.content {
+    background: beige;
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    height: 370px;
+    width: 1000px;
+}
+
+#welcome:checked ~ .content #welcome_content,
+#request:checked ~ .content #request_content
+{
+    display: block;
+}
+.content .tab_content {
+    display: none;
+}
+
+.content img {
+    position: absolute;
+    padding-left: 225px;
+    height: 300px;
+}
+
+p {
+    text-align: center;
+    padding-top: 300px;
+}
+
+button {
+    float: right;
+    padding: 5px 10px;
+    font-size: 13px;
+    margin-right: 25px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.date {
+    text-align: right;
+    margin-right: 25px;
+}
+
+.message {
+    position: relative;
+    display: flex;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.success {
+    font-size: 18px;
+    color: green;
+    position: absolute;
+    display: none;
+}
+
+.failed {
+    font-size: 18px;
+    color: red;
+    position: absolute;
+    display: none;
+}
+
+@keyframes buttons{
+    0%{
+        transform: scale(0.1);
+    }
+    50%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
